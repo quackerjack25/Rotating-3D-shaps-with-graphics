@@ -1,0 +1,46 @@
+# Project: Project8
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Alkhatib_HW8.o Material.o tga.o GLUtilities.o Camera.o Vector.o Spherical.o
+LINKOBJ  = Alkhatib_HW8.o Material.o tga.o GLUtilities.o Camera.o Vector.o Spherical.o
+LIBS     = -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lglu32 -lopengl32 -lfreeglut
+INCS     = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"E:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Project8.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Alkhatib_HW8.o: Alkhatib_HW8.cpp
+	$(CPP) -c Alkhatib_HW8.cpp -o Alkhatib_HW8.o $(CXXFLAGS)
+
+Material.o: Material.cpp
+	$(CPP) -c Material.cpp -o Material.o $(CXXFLAGS)
+
+tga.o: tga.cpp
+	$(CPP) -c tga.cpp -o tga.o $(CXXFLAGS)
+
+GLUtilities.o: GLUtilities.cpp
+	$(CPP) -c GLUtilities.cpp -o GLUtilities.o $(CXXFLAGS)
+
+Camera.o: Camera.cpp
+	$(CPP) -c Camera.cpp -o Camera.o $(CXXFLAGS)
+
+Vector.o: Vector.cpp
+	$(CPP) -c Vector.cpp -o Vector.o $(CXXFLAGS)
+
+Spherical.o: Spherical.cpp
+	$(CPP) -c Spherical.cpp -o Spherical.o $(CXXFLAGS)
